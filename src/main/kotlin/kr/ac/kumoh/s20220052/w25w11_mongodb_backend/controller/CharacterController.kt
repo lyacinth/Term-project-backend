@@ -16,7 +16,10 @@ import java.net.URI
 
 @RestController
 @RequestMapping("/api/characters")
-@CrossOrigin(origins = ["http://localhost:5173"])
+@CrossOrigin(origins = [
+    "http://localhost:5173",
+    "https://lyacinth.github.io"
+])
 class CharacterController(
     private val service: CharacterService
 ) {
@@ -37,10 +40,10 @@ class CharacterController(
     @GetMapping
     fun getAllCharacters(): ResponseEntity<List<Character>> {
         val characters = service.getAllCharacters()
-        /*if (characters.isEmpty()) {
+        if (characters.isEmpty()) {
             // 204 No Content
             return ResponseEntity.noContent().build()
-        }*/
+        }
 
         // 200 OK
         return ResponseEntity.ok(characters)
@@ -64,10 +67,10 @@ class CharacterController(
     ): ResponseEntity<List<Character>> {
         val characters = service.getCharacterByRoll(roll)
 
-        /*if (characters.isEmpty()) {
+        if (characters.isEmpty()) {
             // 204 No Content
             return ResponseEntity.noContent().build()
-        }*/
+        }
 
         // 200 OK
         return ResponseEntity.ok(characters)
