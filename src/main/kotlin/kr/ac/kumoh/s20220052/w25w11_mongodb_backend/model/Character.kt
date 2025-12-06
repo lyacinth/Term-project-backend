@@ -11,5 +11,5 @@ data class Character(
     val roll: List<String>,
     val summary: String,
     val rating: Int,
-    val imageFile: String? = null
+    val images: String
     )
